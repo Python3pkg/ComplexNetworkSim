@@ -5,9 +5,9 @@
 import networkx as nx
 
 from ComplexNetworkSim import NetworkSimulation, AnimationCreator, PlotCreator
-from agent_skypeClient import DISABLED, ENABLED, ENABLED_S, DISABLED_S
-from agent_skypeClient import Skype 
-from environment_Skype import crash 
+from .agent_skypeClient import DISABLED, ENABLED, ENABLED_S, DISABLED_S
+from .agent_skypeClient import Skype 
+from .environment_Skype import crash 
 
 # Simulation constants    
 MAX_SIMULATION_TIME = 50.0
@@ -88,8 +88,8 @@ def simulate(**kwargs):
     NUMBER_NODES = kwargs.get("nodes", 600)
     NUMBER_PERMANENT_SUPERNODES = kwargs.get("permanent_supernodes", 1)    
     globalSharedParameters = {} 
-    globalSharedParameters['supernodes'] = range(NUMBER_SUPERNODES) 
-    globalSharedParameters['permanent_supernodes'] = range(NUMBER_PERMANENT_SUPERNODES) 
+    globalSharedParameters['supernodes'] = list(range(NUMBER_SUPERNODES)) 
+    globalSharedParameters['permanent_supernodes'] = list(range(NUMBER_PERMANENT_SUPERNODES)) 
     globalSharedParameters['threshold'] = kwargs.get("threshold", 12)
     globalSharedParameters['cache_size'] = kwargs.get("cache_size", 20)
     globalSharedParameters['kills'] = kwargs.get("kills", 30)
@@ -110,7 +110,7 @@ def simulate(**kwargs):
     
 #####topology####
     G = nx.Graph(nx.complete_graph(NUMBER_SUPERNODES))
-    G.add_nodes_from(xrange(NUMBER_SUPERNODES,NUMBER_NODES+NUMBER_SUPERNODES))
+    G.add_nodes_from(range(NUMBER_SUPERNODES,NUMBER_NODES+NUMBER_SUPERNODES))
     
     states = [DISABLED for node in G.nodes_iter()]
     

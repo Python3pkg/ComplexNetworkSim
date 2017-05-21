@@ -4,7 +4,7 @@ agent at timestep 7.
 @author: Joe Schaul <joe.schaul@gmail.com>
 '''
 from ComplexNetworkSim import NetworkAgent, Sim
-from agent_SIR import INFECTED, SUSCEPTIBLE, RECOVERED
+from .agent_SIR import INFECTED, SUSCEPTIBLE, RECOVERED
 
 class SIRenvironment(NetworkAgent):
     

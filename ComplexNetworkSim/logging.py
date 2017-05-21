@@ -8,7 +8,7 @@ states and topologies at every defined timestep.
 import networkx as nx
 from SimPy import Simulation as Sim
 
-import utils
+from . import utils
 
 class NetworkLogger(Sim.Process):
         

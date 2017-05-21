@@ -109,7 +109,7 @@ class NetworkAgent(Sim.Process):
         
     def logTopoChange(self, action, node, node2=None):
         #TODO: test, add this to netlogger...
-        print action, node, node2
+        print(action, node, node2)
         
         
     

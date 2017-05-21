@@ -8,9 +8,9 @@ See model_scale_free.py for combined behaviour.
 import networkx as nx
 
 from ComplexNetworkSim import NetworkSimulation
-from agent_SIR import INFECTED, RECOVERED, SUSCEPTIBLE
-from agent_SIR import SIRSimple as agentClass
-from environment_SIR import SIRenvironment as environmentAgent
+from .agent_SIR import INFECTED, RECOVERED, SUSCEPTIBLE
+from .agent_SIR import SIRSimple as agentClass
+from .environment_SIR import SIRenvironment as environmentAgent
 
 # Simulation constants    
 MAX_SIMULATION_TIME = 25.0

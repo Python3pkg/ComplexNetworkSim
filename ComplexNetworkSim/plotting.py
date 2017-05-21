@@ -4,8 +4,8 @@ Module for the generation of plots of system states.
 @author: Joe Schaul <joe.schaul@gmail.com>
 '''
 
-import utils
-import statistics
+from . import utils
+from . import statistics
 import os
 
 
@@ -42,11 +42,11 @@ class PlotCreator(object):
                 lines.append((av.times, av.stateCounterForStateX[self.statesToMonitor[i]], self.colours[i]))
             except KeyError:
                 try:
-                    print "Plotting warning: skipping state = %s, colour = %s, label = %s, %s" \
+                    print("Plotting warning: skipping state = %s, colour = %s, label = %s, %s" \
                             % (str(self.statesToMonitor[i]), str(self.colours[i]), str(self.labels[i]), 
-                               "because no node is ever in this state in this trial")
+                               "because no node is ever in this state in this trial"))
                 except KeyError:
-                    print "Plotting error: one of 'colours' or 'labels' has fewer elements",
+                    print("Plotting error: one of 'colours' or 'labels' has fewer elements", end=' ')
                     " than 'statesToMonitor'. Skipping this state."
             
         pyplot.legend(loc=0)
@@ -59,7 +59,7 @@ class PlotCreator(object):
             output_path = os.path.join(self.directory, "plot_" + self.name + ".png")
             pyplot.savefig(output_path)
             if verbose: 
-                print "Plot at", output_path
+                print("Plot at", output_path)
             
             if show:
                 pyplot.show()

@@ -4,6 +4,7 @@ Used in plotting.
 
 @author: Joe Schaul <joe.schaul@gmail.com>
 '''
+from functools import reduce
 
 class TrialState(object):
 

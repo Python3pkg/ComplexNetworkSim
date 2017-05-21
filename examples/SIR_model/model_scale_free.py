@@ -5,9 +5,9 @@
 import networkx as nx
 
 from ComplexNetworkSim import NetworkSimulation, AnimationCreator, PlotCreator
-from agent_SIR import INFECTED, RECOVERED, SUSCEPTIBLE
-from agent_SIR import SIRSimple as agentClass
-from environment_SIR import SIRenvironment as environmentAgent
+from .agent_SIR import INFECTED, RECOVERED, SUSCEPTIBLE
+from .agent_SIR import SIRSimple as agentClass
+from .environment_SIR import SIRenvironment as environmentAgent
 
 # Simulation constants    
 MAX_SIMULATION_TIME = 25.0

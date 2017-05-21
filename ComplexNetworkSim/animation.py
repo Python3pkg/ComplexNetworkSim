@@ -5,7 +5,7 @@ Generates PNG images for each timestep and (if ImageMagick is available) a gif a
 @author: Joe Schaul <joe.schaul@gmail.com>
 '''
 
-import utils
+from . import utils
 from matplotlib import pyplot
 import networkx as nx
 import os    
@@ -23,19 +23,19 @@ class AnimationCreator(object):
         self.G = nx.Graph()
     
     def create_gif(self, verbose=True):
-        if verbose: print "Creating PNGs ...",
+        if verbose: print("Creating PNGs ...", end=' ')
         self.createPNGs()        
         
         input = os.path.join(self.dir, self.name + "*.png")
         output = os.path.join(self.dir, self.name + ".gif")
         
-        if verbose: print "attempting gif creation ...",
+        if verbose: print("attempting gif creation ...", end=' ')
         
         failure = os.system("convert -delay %i -loop 0 \"%s\" \"%s\"" % (self.delay, input, output))
         if failure:
-            print "Problem: Could not create gif. \nMaybe ImageMagick not installed correctly, or its 'convert' executable is not on your system path? \nPNG Image files are generated in any case." 
+            print("Problem: Could not create gif. \nMaybe ImageMagick not installed correctly, or its 'convert' executable is not on your system path? \nPNG Image files are generated in any case.") 
         else:
-            print "success! \nAnimation at %s " % str(output)
+            print("success! \nAnimation at %s " % str(output))
             
             
     def createPNGs(self):        
@@ -44,7 +44,7 @@ class AnimationCreator(object):
                      
         init_topo = topos[0][1]
         if topos[0][0] != 0:
-            print "problem - first topology not starting at 0!"
+            print("problem - first topology not starting at 0!")
         self.G = init_topo
         self.layout = nx.layout.fruchterman_reingold_layout(self.G)
         self.nodesToDraw = self.G.nodes()

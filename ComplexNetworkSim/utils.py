@@ -5,12 +5,12 @@ and topologies.
 @author: Joe Schaul <joe.schaul@gmail.com>
 '''
 
-from cPickle import Pickler, Unpickler
+from pickle import Pickler, Unpickler
 import os 
 import glob
 import networkx as nx
 
-from customexceptions import *
+from .customexceptions import *
 
 PYTHON_PICKLE_EXTENSION = ".pickled"
 TOPO = "_topology"
@@ -114,7 +114,7 @@ def logToFile(stuff, filename, verbose=True):
     f.close()
     if verbose:
         total = len(stuff)
-        print "Written %i items to pickled binary file: %s" % (total, filename) 
+        print("Written %i items to pickled binary file: %s" % (total, filename)) 
     return filename
     
     

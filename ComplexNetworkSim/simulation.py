@@ -12,7 +12,7 @@ import os
 from SimPy import Simulation as Sim
 import networkx as nx
 
-from logging import NetworkLogger
+from .logging import NetworkLogger
         
 class NetworkSimulation(Sim.Simulation):
     """Simulation support for agents in a complex network.
@@ -64,13 +64,13 @@ class NetworkSimulation(Sim.Simulation):
         self.globalSharedParameters = globalSharedParameters
         
     def runSimulation(self):
-        print "Starting simulations..."
+        print("Starting simulations...")
         
         for i in range(self.no_trials):
-            print "---Trial " + str(i) + " ---"
+            print("---Trial " + str(i) + " ---")
             self.runTrial(i)
             
-        print "Simulation completed. "
+        print("Simulation completed. ")
             
     def runTrial(self, id):
         self.initialize() #Sim.Simulation initialisation
@@ -80,7 +80,7 @@ class NetworkSimulation(Sim.Simulation):
         self.G = self.initial_topology.copy()
         self.params = self.globalSharedParameters.copy()
         
-        print "set up agents..."
+        print("set up agents...")
         #set up agents
         for i in self.G.nodes():
             agent = self.agentClass(self.initial_states[i], (i, self, self.G, self.params))

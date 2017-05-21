@@ -23,14 +23,14 @@ class globalTest(object):
     
     def globalTearDown(self):
         files = os.listdir(globalTest.directory)       
-        print "Deleting... "  
+        print("Deleting... ")  
         for file in files:
             if ("." in file and utils.PYTHON_PICKLE_EXTENSION not in file):
                 raise Exception("directory contains non anticipated file.")
             path = globalTest.directory + os.sep + file
-            print path
+            print(path)
             os.remove(path)
-        print "Removal of temporary files done."
+        print("Removal of temporary files done.")
     
 
 
